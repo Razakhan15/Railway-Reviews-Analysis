@@ -44,12 +44,13 @@ def get_review_analysis(text):
     category = label_mapping.get(category_pred, 'Unknown')
 
     roberta_booleans = polarity_scores_roberta(cleaned_text)
-    
+    print(cleaned_text)
+    # print(roberta_booleans['roberta_neg'])
     return {
         'category': category,
         **roberta_booleans
     }
 
-example_text = "The train was delayed for 2 hours."
+example_text = "@sureshpprabhu @RailMinIndia AC not working in prayag lucknow intercity today which departed from prayag at 3.45 pm..staff not helping us"
 result = get_review_analysis(example_text)
 print(result)
